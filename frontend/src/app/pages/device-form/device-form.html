@@ -1,0 +1,50 @@
+<h2>Novo Dispositivos</h2>
+
+<form [formGroup]="deviceForm" (ngSubmit)="onSubmit()" class="example-form">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Nome</mat-label>
+    <input
+      id="name"
+      formControlName="name"
+      matInput
+      placeholder="Nome"
+      type="text">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Local</mat-label>
+    <input
+      id="location"
+      formControlName="location"
+      matInput
+      placeholder="Localização"
+      type="text">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Data de compra</mat-label>
+    <input
+      id="purchase_date"
+      formControlName="purchase_date"
+      matInput
+      [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+ 
+
+  <mat-checkbox
+    id="in_use"
+    formControlName="in_use">
+    Em uso
+  </mat-checkbox>
+
+  <br><br>
+
+  <button type="submit" [disabled]="!deviceForm.valid">
+    Submit
+  </button>
+
+</form>
